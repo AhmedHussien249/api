@@ -1,5 +1,4 @@
-import 'package:api/movies_screen/movies.dart';
-import 'package:api/themar_screens/products.dart';
+import 'package:api/themar_screens/view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Products(),
-
+      home: Views(),
     );
   }
 }

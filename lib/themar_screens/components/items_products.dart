@@ -1,70 +1,16 @@
-import 'package:api/core/designs/app_images.dart';
-import 'package:api/models/products_models.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+part of 'products_section.dart';
 
-class Products extends StatefulWidget {
-  const Products({super.key});
 
-  @override
-  State<Products> createState() => _ProductsState();
-}
-
-class _ProductsState extends State<Products> {
-  @override
-  void initState() {
-    getData();
-    super.initState();
-  }
-
-  late bool isLoading = true;
-  late ProductsData model;
-
-  Future<void> getData() async {
-    final response =
-        await Dio().get("https://thimar.amr.aait-d.com/api/products");
-    model = ProductsData.fromJson(response.data);
-    isLoading = false;
-    setState(() {});
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: Text("منتجات"),
-            centerTitle: true,
-          ),
-          body: isLoading
-              ? Center(child: CircularProgressIndicator())
-              : GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                    childAspectRatio: 198 / 300,
-                  ),
-                  itemBuilder: (context, index) =>
-                      _item(model: model.list[index]),
-                  itemCount: model.list.length,
-                ),
-        ));
-  }
-}
-
-class _item extends StatefulWidget {
+class _Item extends StatefulWidget {
   final ProductsModels model;
 
-  const _item({super.key, required this.model});
+  const _Item({super.key, required this.model});
 
   @override
-  State<_item> createState() => _itemState();
+  State<_Item> createState() => _ItemState();
 }
 
-class _itemState extends State<_item> {
+class _ItemState extends State<_Item> {
   @override
   Widget build(BuildContext context) {
     return Container(
