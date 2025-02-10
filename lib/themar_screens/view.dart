@@ -1,8 +1,8 @@
+import 'package:api/themar_screens/components/products_section.dart';
 import 'package:api/themar_screens/components/slider_section.dart';
 import 'package:flutter/material.dart';
 
 import 'components/category_section/view.dart';
-import 'components/products_section.dart';
 
 class Views extends StatefulWidget {
   const Views({super.key});

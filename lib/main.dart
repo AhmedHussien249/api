@@ -1,7 +1,12 @@
 import 'package:api/core/logic/helper.dart';
+import 'package:api/counter/view.dart';
+import 'package:api/themar_screens/components/category_section/cubit.dart';
 import 'package:api/themar_screens/view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'counter/cubit.dart';
+import 'login/cubit.dart';
 import 'login/view.dart';
 
 void main() {
@@ -14,10 +19,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      home: const Views()
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CounterCubit()),
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => CategoriesCubit()..getData()),
+
+      ],
+      child: MaterialApp(
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        home: const Login()
+      ),
     );
   }
 }
