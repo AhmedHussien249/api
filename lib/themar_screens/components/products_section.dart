@@ -23,7 +23,7 @@ class _ProductsSectionState extends State<ProductsSection> {
 
   Future<void> getData() async {
     final response =
-        await Dio().get("https://thimar.amr.aait-d.com/api/products");
+    await Dio().get("https://thimar.amr.aait-d.com/api/products");
     model = ProductsData.fromJson(response.data);
     isLoading = false;
     setState(() {});

@@ -1,0 +1,50 @@
+import 'dart:io';
+
+import 'package:api/login/states.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../core/logic/dio_helper.dart';
+import '../core/logic/helper.dart';
+import '../themar_screens/view.dart';
+
+class LoginCubit extends Cubit<LoginStates> {
+  final phoneController = TextEditingController();
+  final passwordController = TextEditingController();
+  bool isLoading = false;
+
+  LoginCubit() : super(LoginStates());
+
+  Future<void> send(context) async {
+    //isLoading = true;
+    //setState(() {});
+    emit(LoginLoadingStates());
+    final response = await DioHelper.send("login", data: {
+      "phone": phoneController.text,
+      "password": passwordController.text,
+      "device_token": "test",
+      "type": Platform.operatingSystem,
+      "user_type": "client"
+    });
+    print(response.data);
+    if (response.isSuccess) {
+      navigateTo(Views(), isReplacement: true, keepHistory: false);
+      emit(LoginSuccessStates());
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(response.message!),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 1),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+      );
+      emit(LoginFailedStates());
+    }
+   // isLoading = false;
+    // setState(() {});
+  }
+}

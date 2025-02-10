@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppInput extends StatefulWidget {
   final String label;
   final String? hint;
+  final InputBorder? border;
   final TextInputType? keyboardType;
   final bool isPassword;
   final int maxLines;
@@ -16,7 +17,9 @@ class AppInput extends StatefulWidget {
       this.isPassword = false,
       this.maxLines = 1,
       this.hint,
-      this.controller, this.validator});
+      this.controller,
+      this.validator,
+      this.border});
 
   @override
   State<AppInput> createState() => _AppInputState();
@@ -28,12 +31,14 @@ class _AppInputState extends State<AppInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: isHidden && widget.isPassword,
       obscuringCharacter: "*",
       maxLines: widget.maxLines,
       validator: widget.validator,
       decoration: InputDecoration(
+        border: widget.border,
         labelText: widget.label,
         hintText: widget.hint,
         alignLabelWithHint: true,
