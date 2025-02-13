@@ -5,22 +5,20 @@ import '../../../core/logic/dio_helper.dart';
 import 'models.dart';
 
 class CategoriesCubit extends Cubit<CategoriesStates> {
-  CategoriesCubit(): super(CategoriesLoadingState());
+  CategoriesCubit() : super(CategoriesLoadingState());
 
   // late bool isLoading = true;
-  late CategoriesData model;
-  late CustomResponse response;
+  //late CustomResponse response;
 
   Future<void> getData() async {
-    response = await DioHelper.getData(url: "categories");
+    final response = await DioHelper.getData(url: "categories");
     if (response.isSuccess) {
-      model = CategoriesData.fromJson(response.data);
-      emit(CategoriesSuccessState());
-    }else{
-      emit(CategoriesErrorState());
+      final list = CategoriesData.fromJson(response.data).list;
+      emit(CategoriesSuccessState(list: list));
+    } else {
+      emit(CategoriesErrorState(message: response.message ?? "failed"));
     }
-   // isLoading = false;
-   // setState(() {});
+    // isLoading = false;
+    // setState(() {});
   }
-
 }

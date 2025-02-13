@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:api/login/states.dart';
+import 'package:api/core/logic/dio_helper.dart';
+import 'package:api/themar_screens/login/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../core/logic/dio_helper.dart';
-import '../core/logic/helper.dart';
-import '../themar_screens/view.dart';
+import '../../core/logic/helper.dart';
+import '../view.dart';
 
 class LoginCubit extends Cubit<LoginStates> {
   final phoneController = TextEditingController();
@@ -16,8 +16,6 @@ class LoginCubit extends Cubit<LoginStates> {
   LoginCubit() : super(LoginStates());
 
   Future<void> send(context) async {
-    //isLoading = true;
-    //setState(() {});
     emit(LoginLoadingStates());
     final response = await DioHelper.send("login", data: {
       "phone": phoneController.text,
@@ -44,7 +42,7 @@ class LoginCubit extends Cubit<LoginStates> {
       );
       emit(LoginFailedStates());
     }
-   // isLoading = false;
+    // isLoading = false;
     // setState(() {});
   }
 }

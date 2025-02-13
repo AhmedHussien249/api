@@ -1,10 +1,10 @@
 import 'package:api/core/designs/app_input.dart';
-import 'package:api/login/cubit.dart';
-import 'package:api/login/states.dart';
+import 'package:api/themar_screens/login/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../core/designs/app_button.dart';
+import '../../core/designs/app_button.dart';
+import 'cubit.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,11 +15,13 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   late LoginCubit cubit;
-@override
+
+  @override
   void initState() {
-  cubit = BlocProvider.of(context);
+    cubit = BlocProvider.of(context);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

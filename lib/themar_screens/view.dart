@@ -1,5 +1,5 @@
-import 'package:api/themar_screens/components/products_section.dart';
-import 'package:api/themar_screens/components/slider_section.dart';
+import 'package:api/themar_screens/components/products/view.dart';
+import 'package:api/themar_screens/components/slider/view.dart';
 import 'package:flutter/material.dart';
 
 import 'components/category_section/view.dart';
@@ -41,3 +41,15 @@ class _ViewsState extends State<Views> {
     );
   }
 }
+
+// mvc
+// mvp
+// mvvm
+// mvi
+// design architecture
+
+/* state Mangement (statelful - cubit-bloc-provider-getx-redux)
+1. separate ui and logic
+2. handle code into pieces
+3.handle when refresh just refresh the need part
+ */

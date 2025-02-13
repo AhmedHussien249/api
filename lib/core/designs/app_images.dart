@@ -15,7 +15,8 @@ class AppImages extends StatelessWidget {
       this.height,
       this.width,
       this.fit = BoxFit.scaleDown,
-      this.color, this.loadingBuilder})
+      this.color,
+      this.loadingBuilder})
       : super(key: key);
 
   @override

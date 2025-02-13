@@ -17,13 +17,13 @@ Future<dynamic> navigateTo(Widget page,
 
 enum MessageType { success, warning, error }
 
-void showMessage(String msg, {MessageType messageType = MessageType.success}) {
+void showMessage(String msg, {MessageType messageType = MessageType.error}) {
   ScaffoldMessenger.of(
     navigatorKey.currentContext!,
   ).showSnackBar(SnackBar(
     content: Text(msg),
     backgroundColor: messageType == MessageType.success
-        ? Theme.of(navigatorKey.currentContext!).primaryColor
+        ? Colors.green
         : messageType == MessageType.warning
             ? Colors.orange
             : Colors.red,

@@ -1,7 +1,17 @@
+import 'models.dart';
+
 class CategoriesStates {}
 
-class CategoriesSuccessState extends CategoriesStates {}
+class CategoriesSuccessState extends CategoriesStates {
+  final List<CategoryModel> list;
 
-class CategoriesErrorState extends CategoriesStates {}
+  CategoriesSuccessState({required this.list});
+}
+
+class CategoriesErrorState extends CategoriesStates {
+  final String message;
+
+  CategoriesErrorState({required this.message});
+}
 
 class CategoriesLoadingState extends CategoriesStates {}
