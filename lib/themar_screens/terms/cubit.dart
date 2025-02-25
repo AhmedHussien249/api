@@ -5,10 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'model.dart';
 
 class TermsCubit extends Cubit<TermsStates> {
-  TermsCubit() : super(TermsLoadingStates());
+  final DioHelper _dio;
+  TermsCubit(this._dio) : super(TermsLoadingStates());
 
   Future<void> getData() async {
-    final response = await DioHelper.getData(url: "terms");
+    final response = await _dio.getData(url: "terms");
     if (response.isSuccess) {
       final list = TermsData.fromJson(response.data).list;
       emit(TermsSuccessStates(list: list));

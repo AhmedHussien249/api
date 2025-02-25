@@ -5,14 +5,15 @@ import '../../../core/logic/dio_helper.dart';
 import 'model.dart';
 
 class SliderCubit extends Cubit<SliderStates> {
-  SliderCubit() : super(SliderLoadingStates());
+  final DioHelper _dio ;
+  SliderCubit(this._dio) : super(SliderLoadingStates());
 
   //late SliderData model;
   //late CustomResponse response;
   //int currentIndex = 0;
 
   Future<void> getData() async {
-    final response = await DioHelper.getData(url: "sliders");
+    final response = await _dio.getData(url: "sliders");
     if (response.isSuccess) {
       final list = SliderData.fromJson(response.data).list;
       emit(SliderSuccessStates(list: list, currentIndex: 0));

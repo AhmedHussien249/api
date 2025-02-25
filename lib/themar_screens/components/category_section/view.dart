@@ -2,6 +2,7 @@ import 'package:api/themar_screens/components/category_section/cubit.dart';
 import 'package:api/themar_screens/components/category_section/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../core/designs/app_images.dart';
 
@@ -13,14 +14,8 @@ class CategorySection extends StatefulWidget {
 }
 
 class _CategorySectionState extends State<CategorySection> {
-  late CategoriesCubit cubit;
+  final cubit = GetIt.instance<CategoriesCubit>();
 
-  @override
-  void initState() {
-    cubit = BlocProvider.of(context);
-    super.initState();
-    //cubit.getData();
-  }
 
   @override
   Widget build(BuildContext context) {

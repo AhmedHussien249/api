@@ -2,6 +2,7 @@ import 'package:api/themar_screens/components/products/models.dart';
 import 'package:api/themar_screens/components/products/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../core/designs/app_images.dart';
 import 'cubit.dart';
@@ -16,13 +17,8 @@ class ProductsSection extends StatefulWidget {
 }
 
 class _ProductsSectionState extends State<ProductsSection> {
-  late ProductsCubit cubit;
+  final cubit = GetIt.instance<ProductsCubit>();
 
-  @override
-  void initState() {
-    cubit = BlocProvider.of(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

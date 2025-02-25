@@ -2,6 +2,7 @@ import 'package:api/themar_screens/terms/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:get_it/get_it.dart';
 
 import 'cubit.dart';
 
@@ -13,13 +14,8 @@ class TermsView extends StatefulWidget {
 }
 
 class _TermsViewState extends State<TermsView> {
-  late TermsCubit cubit;
+  final cubit = GetIt.instance<TermsCubit>();
 
-  @override
-  void initState() {
-    cubit = BlocProvider.of(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

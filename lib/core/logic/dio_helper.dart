@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 
 class DioHelper {
-  static final _dio =
+   final _dio =
       Dio(BaseOptions(baseUrl: 'https://thimar.amr.aait-d.com/api/'));
 
-  static Future<CustomResponse> getData({required String url}) async {
+   Future<CustomResponse> getData({required String url}) async {
     try {
       final response = await _dio.get(url);
       print(response.data);
@@ -15,7 +15,7 @@ class DioHelper {
     }
   }
 
-  static Future<CustomResponse> send(String url,
+   Future<CustomResponse> send(String url,
       {Map<String, dynamic>? data}) async {
     try {
       final response = await _dio.post(url, data: data);
@@ -26,7 +26,7 @@ class DioHelper {
     }
   }
 
-  static CustomResponse handleException(DioException e) {
+   CustomResponse handleException(DioException e) {
     print(e.response?.data);
     String? message = e.response?.data['message'];
     return CustomResponse(isSuccess: false, message: message ?? e.type.name);

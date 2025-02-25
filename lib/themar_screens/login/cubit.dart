@@ -12,12 +12,13 @@ class LoginCubit extends Cubit<LoginStates> {
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   bool isLoading = false;
+  final DioHelper _dio;
 
-  LoginCubit() : super(LoginStates());
+  LoginCubit(this._dio) : super(LoginStates());
 
   Future<void> send(context) async {
     emit(LoginLoadingStates());
-    final response = await DioHelper.send("login", data: {
+    final response = await _dio.send("login", data: {
       "phone": phoneController.text,
       "password": passwordController.text,
       "device_token": "test",

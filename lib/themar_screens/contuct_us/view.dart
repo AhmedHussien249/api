@@ -2,8 +2,10 @@ import 'package:api/core/designs/app_input.dart';
 import 'package:api/core/logic/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
-import 'cubit.dart';
+import 'bloc.dart';
+import 'events.dart';
 import 'states.dart';
 
 class ContactUsView extends StatefulWidget {
@@ -14,13 +16,8 @@ class ContactUsView extends StatefulWidget {
 }
 
 class _ContactUsViewState extends State<ContactUsView> {
-  late ContactUsCubit cubit;
+  final bloc = GetIt.instance<ContactUsBloc>();
 
-  @override
-  void initState() {
-    cubit = BlocProvider.of(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,7 @@ class _ContactUsViewState extends State<ContactUsView> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 AppInput(
-                  controller: cubit.fullNameController,
+                  controller: bloc.fullNameController,
                   label: "full name",
                   hint: "enter your full name",
                   border: const OutlineInputBorder(),
@@ -45,7 +42,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   height: 16,
                 ),
                 AppInput(
-                  controller: cubit.phoneController,
+                  controller: bloc.phoneController,
                   label: "phone",
                   hint: "enter your phone number",
                   border: const OutlineInputBorder(),
@@ -54,7 +51,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   height: 16,
                 ),
                 AppInput(
-                  controller: cubit.titleController,
+                  controller: bloc.titleController,
                   label: "title",
                   hint: "enter your title",
                   border: const OutlineInputBorder(),
@@ -63,7 +60,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   height: 16,
                 ),
                 AppInput(
-                  controller: cubit.contentController,
+                  controller: bloc.contentController,
                   label: "content",
                   maxLines: 5,
                   hint: "enter your content",
@@ -73,7 +70,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   height: 16,
                 ),
                 BlocConsumer(
-                    bloc: cubit,
+                    bloc: bloc,
                     listener: (context, state) {
                       if (state is SendContactUsSuccessStates) {
                         print("*****");
@@ -90,7 +87,9 @@ class _ContactUsViewState extends State<ContactUsView> {
                         return  Center(child: CircularProgressIndicator());
                       } else {
                         return FilledButton(
-                          onPressed: () => cubit.send(),
+                          onPressed: () {
+                            bloc.add(ContactUsSendEvent());
+                          },
                           child: const Text("send"),
                         );
                       }

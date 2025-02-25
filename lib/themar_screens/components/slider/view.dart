@@ -4,6 +4,7 @@ import 'package:api/themar_screens/components/slider/states.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 class SliderSection extends StatefulWidget {
   const SliderSection({super.key});
@@ -13,13 +14,8 @@ class SliderSection extends StatefulWidget {
 }
 
 class _SliderSectionState extends State<SliderSection> {
-  late SliderCubit cubit;
+  final cubit = GetIt.instance<SliderCubit>();
 
-  @override
-  void initState() {
-    cubit = BlocProvider.of(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +68,7 @@ class _SliderSectionState extends State<SliderSection> {
                           autoPlayInterval: const Duration(seconds: 3),
                           onPageChanged: (index, reason) {
                             cubit.changeCurrentIndex(index);
-                            print("BlocBuilder");
+                            //print("BlocBuilder");
                           },
                         ),
                         itemBuilder: (context, index, realIndex) => AppImages(
