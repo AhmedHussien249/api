@@ -27,7 +27,7 @@ void showMessage(String msg, {MessageType messageType = MessageType.error}) {
         : messageType == MessageType.warning
             ? Colors.orange
             : Colors.red,
-    duration: Duration(seconds: 1),
+    duration: const Duration(seconds: 1),
   ));
 }
 

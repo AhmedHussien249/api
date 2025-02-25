@@ -24,14 +24,14 @@ class _MoviesState extends State<Movies> {
         "https://api.themoviedb.org/3/discover/movie?api_key=2001486a0f63e9e4ef9c4da157ef37cd&page=9");
     // await Future.delayed(Duration(seconds: 3));
     final movies = response.data["results"] as List;
-    movies.forEach((element) {
+    for (var element in movies) {
       print("********");
       print(element["backdrop_path"]);
       print(element["original_title"]);
       MovieModel movie = MovieModel(
           image: element["backdrop_path"], title: element["original_title"]);
       list.add(movie);
-    });
+    }
     isLoading = false;
     setState(() {});
   }
@@ -41,7 +41,7 @@ class _MoviesState extends State<Movies> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Movies",
           style: TextStyle(
               color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
@@ -49,12 +49,12 @@ class _MoviesState extends State<Movies> {
         backgroundColor: Colors.red,
       ),
       body: isLoading
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : GridView.builder(
-              padding: EdgeInsets.all(16),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              padding: const EdgeInsets.all(16),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
@@ -75,7 +75,7 @@ class _MoviesState extends State<Movies> {
                       child: Center(
                         child: Text(
                           list[index].title,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               color: Colors.white,
                               fontWeight: FontWeight.w500),

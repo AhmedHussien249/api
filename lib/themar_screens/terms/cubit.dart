@@ -6,6 +6,7 @@ import 'model.dart';
 
 class TermsCubit extends Cubit<TermsStates> {
   final DioHelper _dio;
+
   TermsCubit(this._dio) : super(TermsLoadingStates());
 
   Future<void> getData() async {

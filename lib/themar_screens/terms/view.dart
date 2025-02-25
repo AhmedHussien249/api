@@ -16,7 +16,6 @@ class TermsView extends StatefulWidget {
 class _TermsViewState extends State<TermsView> {
   final cubit = GetIt.instance<TermsCubit>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _TermsViewState extends State<TermsView> {
           } else if (state is TermsSuccessStates) {
             return HtmlWidget(state.list.terms);
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

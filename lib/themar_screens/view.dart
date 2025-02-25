@@ -1,6 +1,7 @@
 import 'package:api/themar_screens/components/products/view.dart';
 import 'package:api/themar_screens/components/slider/view.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'components/category_section/view.dart';
 
@@ -19,10 +20,10 @@ class _ViewsState extends State<Views> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: Text("منتجات"),
+          title: const Text("منتجات"),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
+        body:  SingleChildScrollView(
           child: Column(
             children: [
               SliderSection(),

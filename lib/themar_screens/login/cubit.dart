@@ -27,14 +27,14 @@ class LoginCubit extends Cubit<LoginStates> {
     });
     print(response.data);
     if (response.isSuccess) {
-      navigateTo(Views(), isReplacement: true, keepHistory: false);
+      navigateTo(const Views(), isReplacement: true, keepHistory: false);
       emit(LoginSuccessStates());
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(response.message!),
           backgroundColor: Colors.red,
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),

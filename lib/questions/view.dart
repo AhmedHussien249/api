@@ -27,12 +27,12 @@ class _QuestionsViewState extends State<QuestionsView> {
         child: Container(
           decoration: BoxDecoration(border: Border.all()),
           width: double.infinity,
-          margin: EdgeInsets.all(24),
-          padding: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Text("What is the Widget Used To Make Network Image?"),
-              SizedBox(
+              const Text("What is the Widget Used To Make Network Image?"),
+              const SizedBox(
                 height: 20,
               ),
               ...List.generate(
@@ -47,12 +47,12 @@ class _QuestionsViewState extends State<QuestionsView> {
                           groupValue: selectedItem,
                           onChanged: (value) {
                             selectedItem = value!;
-        
+
                             setState(() {});
                           }),
                       if (index == list.length - 1 && index == selectedItem)
                         TextFormField(
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                           ),
                         )

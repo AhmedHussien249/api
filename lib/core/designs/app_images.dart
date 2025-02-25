@@ -11,13 +11,12 @@ class AppImages extends StatelessWidget {
   final Widget Function(BuildContext, Widget, ImageChunkEvent?)? loadingBuilder;
 
   const AppImages(this.path,
-      {Key? key,
+      {super.key,
       this.height,
       this.width,
       this.fit = BoxFit.scaleDown,
       this.color,
-      this.loadingBuilder})
-      : super(key: key);
+      this.loadingBuilder});
 
   @override
   Widget build(BuildContext context) {

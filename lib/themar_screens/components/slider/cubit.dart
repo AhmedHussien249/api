@@ -5,7 +5,8 @@ import '../../../core/logic/dio_helper.dart';
 import 'model.dart';
 
 class SliderCubit extends Cubit<SliderStates> {
-  final DioHelper _dio ;
+  final DioHelper _dio;
+
   SliderCubit(this._dio) : super(SliderLoadingStates());
 
   //late SliderData model;

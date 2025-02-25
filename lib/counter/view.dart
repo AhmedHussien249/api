@@ -14,7 +14,6 @@ class CounterView extends StatefulWidget {
 class _CounterViewState extends State<CounterView> {
   final cubit = GetIt.instance<CounterCubit>();
 
-
   @override
   Widget build(BuildContext context) {
     print("build");
@@ -23,7 +22,7 @@ class _CounterViewState extends State<CounterView> {
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: Text("Counter"),
+              title: const Text("Counter"),
               centerTitle: true,
             ),
             body: Center(
@@ -31,7 +30,7 @@ class _CounterViewState extends State<CounterView> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.remove),
+                    icon: const Icon(Icons.remove),
                     onPressed: () {
                       print("minus");
                       cubit.minus();
@@ -39,7 +38,7 @@ class _CounterViewState extends State<CounterView> {
                   ),
                   Text("${cubit.counter}"),
                   IconButton(
-                    icon: Icon(Icons.add),
+                    icon: const Icon(Icons.add),
                     onPressed: () {
                       cubit.plus();
                     },

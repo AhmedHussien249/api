@@ -18,7 +18,6 @@ class ContactUsView extends StatefulWidget {
 class _ContactUsViewState extends State<ContactUsView> {
   final bloc = GetIt.instance<ContactUsBloc>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +37,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   hint: "enter your full name",
                   border: const OutlineInputBorder(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 AppInput(
@@ -47,7 +46,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   hint: "enter your phone number",
                   border: const OutlineInputBorder(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 AppInput(
@@ -56,7 +55,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   hint: "enter your title",
                   border: const OutlineInputBorder(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 AppInput(
@@ -66,7 +65,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                   hint: "enter your content",
                   border: const OutlineInputBorder(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 BlocConsumer(
@@ -75,7 +74,8 @@ class _ContactUsViewState extends State<ContactUsView> {
                       if (state is SendContactUsSuccessStates) {
                         print("*****");
                         print(state.message);
-                        showMessage(state.message, messageType: MessageType.success);
+                        showMessage(state.message,
+                            messageType: MessageType.success);
                       } else if (state is SendContactUsErrorStates) {
                         print("*****");
                         print(state.message);
@@ -84,7 +84,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                     },
                     builder: (context, state) {
                       if (state is SendContactUsLoadingStates) {
-                        return  Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator());
                       } else {
                         return FilledButton(
                           onPressed: () {

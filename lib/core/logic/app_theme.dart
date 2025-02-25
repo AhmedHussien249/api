@@ -18,25 +18,25 @@ class AppTheme {
           900: primary
         }),
       ),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           titleTextStyle: TextStyle(
               fontSize: 24, fontWeight: FontWeight.w700, color: Colors.black),
           surfaceTintColor: Colors.transparent),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Color(0xffACACAC).withOpacity(.1),
+        fillColor: const Color(0xffACACAC).withOpacity(.1),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         enabledBorder:
             OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w800,
           ),
-          fixedSize: Size.fromHeight(60),
+          fixedSize: const Size.fromHeight(60),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
@@ -44,7 +44,7 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: TextStyle(
+          textStyle: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w800,
             // color: Theme.of(context).primaryColor
@@ -60,7 +60,7 @@ class AppTheme {
       switchTheme:
           SwitchThemeData(trackColor: WidgetStateProperty.resolveWith((states) {
         if (!states.contains(WidgetState.selected)) {
-          return Color(0xffC0C0C0);
+          return const Color(0xffC0C0C0);
         }
         return primary;
       })));

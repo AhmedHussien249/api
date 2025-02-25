@@ -6,6 +6,7 @@ import 'models.dart';
 
 class CategoriesCubit extends Cubit<CategoriesStates> {
   final DioHelper _dio;
+
   CategoriesCubit(this._dio) : super(CategoriesLoadingState());
 
   // late bool isLoading = true;

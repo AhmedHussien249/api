@@ -1,4 +1,3 @@
-import 'package:api/core/logic/dio_helper.dart';
 import 'package:api/counter/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

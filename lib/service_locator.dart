@@ -15,8 +15,12 @@ void initServiceLocator() {
   container.registerFactory(() => CounterCubit());
   container.registerFactory(() => LoginCubit(GetIt.instance<DioHelper>()));
   container.registerFactory(() => ContactUsBloc(GetIt.instance<DioHelper>()));
-  container.registerFactory(() => CategoriesCubit(GetIt.instance<DioHelper>())..getData());
-  container.registerFactory(() => ProductsCubit(GetIt.instance<DioHelper>())..getData());
-  container.registerFactory(() => SliderCubit(GetIt.instance<DioHelper>())..getData());
-  container.registerFactory(() => TermsCubit(GetIt.instance<DioHelper>())..getData());
+  container.registerFactory(
+      () => CategoriesCubit(GetIt.instance<DioHelper>())..getData());
+  container.registerFactory(
+      () => ProductsCubit(GetIt.instance<DioHelper>())..getData());
+  container.registerFactory(
+      () => SliderCubit(GetIt.instance<DioHelper>())..getData());
+  container.registerFactory(
+      () => TermsCubit(GetIt.instance<DioHelper>())..getData());
 }

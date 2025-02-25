@@ -17,13 +17,12 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final cubit = GetIt.instance<LoginCubit>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -34,7 +33,7 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               AppInput(
@@ -45,14 +44,14 @@ class _LoginState extends State<Login> {
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               BlocBuilder(
                   bloc: cubit,
                   builder: (context, state) {
                     if (state is LoginLoadingStates) {
-                      return CircularProgressIndicator();
+                      return const CircularProgressIndicator();
                     } else {
                       return AppButton(
                         text: "تسجيل الدخول",
