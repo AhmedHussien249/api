@@ -1,5 +1,4 @@
 import 'package:api/core/designs/app_images.dart';
-import 'package:api/main.dart';
 import 'package:api/themar_screens/components/slider/cubit.dart';
 import 'package:api/themar_screens/components/slider/states.dart';
 import 'package:carousel_slider/carousel_slider.dart';

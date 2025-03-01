@@ -31,7 +31,7 @@ class _Loading extends StatelessWidget {
                 5,
                 (index) => Padding(
                   padding: EdgeInsetsDirectional.only(end: index != 4.w ? 8.w : 0),
-                  child: CircleAvatar(radius: 6, backgroundColor: Colors.grey),
+                  child: const CircleAvatar(radius: 6, backgroundColor: Colors.grey),
                 ),
               ),
             )

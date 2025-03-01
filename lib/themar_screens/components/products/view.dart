@@ -1,4 +1,3 @@
-import 'package:api/main.dart';
 import 'package:api/themar_screens/components/products/models.dart';
 import 'package:api/themar_screens/components/products/states.dart';
 import 'package:flutter/material.dart';

@@ -23,7 +23,7 @@ class _ViewsState extends State<Views> {
           title: const Text("منتجات"),
           centerTitle: true,
         ),
-        body:  SingleChildScrollView(
+        body:  const SingleChildScrollView(
           child: Column(
             children: [
               SliderSection(),

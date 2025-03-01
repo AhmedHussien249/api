@@ -1,4 +1,3 @@
-import 'package:api/main.dart';
 import 'package:api/themar_screens/components/category_section/cubit.dart';
 import 'package:api/themar_screens/components/category_section/states.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,7 @@ class _CategorySectionState extends State<CategorySection> {
                         color: Colors.black),
                   ),
                 ),
-                 SizedBox(
+                 const SizedBox(
                   height: 12,
                 ),
                 Expanded(

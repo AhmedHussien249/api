@@ -1,4 +1,6 @@
 import 'package:api/core/logic/helper.dart';
+import 'package:api/lines.dart';
+import 'package:api/maps/my_maps.dart';
 import 'package:api/themar_screens/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,12 +19,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      child: const Views(),
-      designSize: Size(430, 932),
+      designSize: const Size(430, 932),
       builder: (context, child) => MaterialApp(
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           home: child ),
+      child: const LinesView(),
     );
   }
 }

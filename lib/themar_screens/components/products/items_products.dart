@@ -21,15 +21,15 @@ class _ItemState extends State<_Item> {
             BoxShadow(
                 color: Colors.black.withOpacity(.25),
                 blurRadius: 4,
-                offset:  Offset(0, 4),
+                offset:  const Offset(0, 4),
                 spreadRadius: 0),
           ]),
       child: Column(
         children: [
           AppImages(
             widget.model.mainImage,
-            height: 150.h,
-            width: double.infinity,
+            height: 140.h,
+            width: double.infinity.w,
             fit: BoxFit.cover,
           ),
            SizedBox(height: 7.h),

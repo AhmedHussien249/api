@@ -46,6 +46,12 @@ dependencies:
   get_it: ^8.0.3
   shimmer: ^3.0.0
   flutter_screenutil: ^5.9.3
+  google_maps_flutter: ^2.10.1
+  maps_launcher: ^3.0.0+1
+  geocoding: ^3.0.0
+  geolocator: ^13.0.2
+  chart_sparkline: ^1.1.1
+  circular_countdown_timer: ^0.2.4
 
 dev_dependencies:
   flutter_test:
