@@ -1,13 +1,18 @@
+import 'package:api/core/logic/cache_helper.dart';
 import 'package:api/core/logic/helper.dart';
+import 'package:api/custom_paint.dart';
 import 'package:api/lines.dart';
 import 'package:api/maps/my_maps.dart';
+import 'package:api/themar_screens/cart/view.dart';
 import 'package:api/themar_screens/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'service_locator.dart';
 
-void main() {
+Future<void> main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
   initServiceLocator();
   runApp(const MyApp());
 }
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           home: child ),
-      child: const LinesView(),
+      child: const CartView(),
     );
   }
 }

@@ -16,6 +16,11 @@ class CacheHelper {
     return _prefs.getString("name") ?? "";
   }
 
+  static String get token {
+    return _prefs.getString("token") ??
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvdGhpbWFyLmFtci5hYWl0LWQuY29tXC9hcGlcL2xvZ2luIiwiaWF0IjoxNzQxMjIwMjQxLCJleHAiOjE3NzI3NTYyNDEsIm5iZiI6MTc0MTIyMDI0MSwianRpIjoiVVhkR0pTalpaUE5IUVRLTCIsInN1YiI6MTQ4OSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.T-q6en2UKVyzU5XKLecbdkPCxiAuG3Lvc22jvGh_pYY";
+  }
+
   static int get age {
     return _prefs.getInt("age") ?? 0;
   }
