@@ -5,7 +5,6 @@ class CartData {
       totalPriceWithVat,
       deliveryCost,
       freeDeliveryPrice,
-      vat,
       vipDiscountPercentage,
       minVipPrice;
   late final bool isVip;
@@ -13,22 +12,26 @@ class CartData {
   late final String vipMessage;
   late final String status;
   late final String message;
-  double get totalBeforeDiscount{
+  late num vat;
+
+  double get totalBeforeDiscount {
     double result = 0;
-    list.forEach((element){
-      result += element.priceBeforeDiscount*element.amount;
-    });
-return result;
-  }
-  double get totalAfterDiscount{
-    double result = 0;
-    list.forEach((element){
-      result += element.price*element.amount;
+    list.forEach((element) {
+      result += element.priceBeforeDiscount * element.amount;
     });
     return result;
   }
-  double get totalDiscountCart {
-    return totalBeforeDiscount - totalAfterDiscount;
+
+  double get totalAfterDiscount {
+    double result = 0;
+    list.forEach((element) {
+      result += element.price * element.amount;
+    });
+    return result;
+  }
+
+  String get totalDiscountCart {
+    return (totalBeforeDiscount - totalAfterDiscount).toStringAsFixed(3);
   }
 
   CartData.fromJson(Map<String, dynamic> json) {
@@ -41,16 +44,14 @@ return result;
     deliveryCost = json['delivery_cost'] ?? 0;
     freeDeliveryPrice = json['free_delivery_price'] ?? 0;
     vat = json['vat'] ?? 0;
+    vat *= 100;
     isVip = json['is_vip'] == 1;
     vipDiscountPercentage = json['vip_discount_percentage'] ?? 0;
     minVipPrice = json['min_vip_price'] ?? 0;
     vipMessage = json['vip_message'] ?? "";
     status = json['status'] ?? "";
     message = json['message'] ?? "";
-
-
   }
-
 }
 
 class ProductModel {
@@ -65,6 +66,7 @@ class ProductModel {
       amount++;
     }
   }
+
   void minus() {
     if (amount > 1) {
       amount--;

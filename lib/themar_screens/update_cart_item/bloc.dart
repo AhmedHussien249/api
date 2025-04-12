@@ -19,11 +19,14 @@ class UpdateCartItemBloc
   Future<void> _sendData(
       UpdateCartItemEvent event, Emitter<UpdateCartItemStates> emit) async {
     emit(UpdateCartItemLoadingState());
-    final response = await _dio.send('client/cart/update/${event.id}',
-        data: {"quantity": event.quantity});
+
+    final response = await _dio.send('client/cart/${event.id}',
+        data: {"amount": event.isAdd==true? event.amount + 1 : event.amount-1, "_method": "PUT"});
+    print(event.id);
+    print("amount:${ event.isAdd==true? event.amount + 1 : event.amount-1}");
     if (response.isSuccess) {
       showMessage("تم التحديث بنجاح");
-      emit(UpdateCartItemSuccessState());
+      emit(UpdateCartItemSuccessState(id: event.id, isAdd: event.isAdd));
     } else {
       emit(UpdateCartItemErrorState(message: response.message!));
     }
