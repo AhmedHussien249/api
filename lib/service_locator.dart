@@ -1,15 +1,16 @@
 import 'package:api/core/logic/dio_helper.dart';
-import 'package:api/themar_screens/cart/bloc.dart';
-import 'package:api/themar_screens/components/category_section/cubit.dart';
-import 'package:api/themar_screens/components/products/cubit.dart';
-import 'package:api/themar_screens/components/slider/cubit.dart';
-import 'package:api/themar_screens/contuct_us/bloc.dart';
-import 'package:api/themar_screens/login/cubit.dart';
-import 'package:api/themar_screens/terms/cubit.dart';
-import 'package:api/themar_screens/update_cart_item/bloc.dart';
+
 import 'package:get_it/get_it.dart';
 
-import 'counter/cubit.dart';
+import 'examples/counter/cubit.dart';
+import 'themar_screens/features/cart/bloc.dart';
+import 'themar_screens/features/category_section/cubit.dart';
+import 'themar_screens/features/contuct_us/bloc.dart';
+import 'themar_screens/features/login/cubit.dart';
+import 'themar_screens/features/products/cubit.dart';
+import 'themar_screens/features/slider/cubit.dart';
+import 'themar_screens/features/terms/cubit.dart';
+import 'themar_screens/features/update_cart_item/bloc.dart';
 
 void initServiceLocator() {
   final container = GetIt.instance;

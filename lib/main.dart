@@ -1,11 +1,12 @@
 import 'package:api/core/logic/cache_helper.dart';
 import 'package:api/core/logic/helper.dart';
-import 'package:api/themar_screens/cart/view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/logic/app_theme.dart';
 import 'service_locator.dart';
+import 'themar_screens/features/cart/cart_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(430, 932),
       builder: (context, child) => MaterialApp(
           navigatorKey: navigatorKey,
+          theme: AppTheme.light,
           debugShowCheckedModeBanner: false,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

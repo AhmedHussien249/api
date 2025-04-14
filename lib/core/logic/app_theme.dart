@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const primary = Color(0xff284243);
+  static const primary = Color(0xff4C8613);
 
   static ThemeData get light => ThemeData(
+      useMaterial3: true,
+      fontFamily: "Tajawal",
       colorScheme: ColorScheme.fromSwatch(
         primarySwatch: MaterialColor(primary.value, {
           50: primary.withOpacity(.1),
@@ -28,7 +30,7 @@ class AppTheme {
         fillColor: const Color(0xffACACAC).withOpacity(.1),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         enabledBorder:
-            OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+        OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
@@ -58,7 +60,7 @@ class AppTheme {
         unselectedItemColor: Colors.white.withOpacity(.3),
       ),
       switchTheme:
-          SwitchThemeData(trackColor: WidgetStateProperty.resolveWith((states) {
+      SwitchThemeData(trackColor: WidgetStateProperty.resolveWith((states) {
         if (!states.contains(WidgetState.selected)) {
           return const Color(0xffC0C0C0);
         }
