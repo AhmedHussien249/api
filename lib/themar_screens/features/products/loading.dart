@@ -9,7 +9,7 @@ class _Loading extends StatelessWidget {
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
       child: GridView.builder(
-        padding:  const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

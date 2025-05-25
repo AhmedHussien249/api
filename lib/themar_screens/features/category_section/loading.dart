@@ -1,6 +1,5 @@
 part of 'category_section_view.dart';
 
-
 class _Loading extends StatelessWidget {
   const _Loading();
 
@@ -14,7 +13,7 @@ class _Loading extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.h),
               child: Text(
                 "الاقسام",
@@ -24,14 +23,14 @@ class _Loading extends StatelessWidget {
                     color: Colors.black),
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 12.h,
             ),
             Expanded(
               child: ListView.separated(
-                padding:  EdgeInsets.symmetric(horizontal: 16.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.h),
                 scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) =>  SizedBox(
+                separatorBuilder: (context, index) => SizedBox(
                   width: 45.w,
                 ),
                 itemCount: 4,
@@ -48,7 +47,7 @@ class _Loading extends StatelessWidget {
                         ),
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 16.h,
                     ),
                     Container(

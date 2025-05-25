@@ -19,7 +19,6 @@ class _MyMapsState extends State<MyMaps> {
   String address = "Address";
   final _controller = Completer<GoogleMapController>();
 
-
   @override
   void initState() {
     _determinePosition();
@@ -62,8 +61,8 @@ class _MyMapsState extends State<MyMaps> {
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     final location = await Geolocator.getCurrentPosition();
-    List<Placemark> placemarks = await placemarkFromCoordinates(
-        location.latitude, location.longitude);
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(location.latitude, location.longitude);
     print("********");
     print(placemarks.first.country);
     print(placemarks.first.name);
@@ -72,7 +71,8 @@ class _MyMapsState extends State<MyMaps> {
     print(placemarks.first.locality);
     print(placemarks.first.postalCode);
     print(placemarks.first.thoroughfare);
-    address ="${placemarks.first.country}-${placemarks.first.name}-${placemarks.first.administrativeArea}";
+    address =
+        "${placemarks.first.country}-${placemarks.first.name}-${placemarks.first.administrativeArea}";
 
     markers.add(Marker(
       markerId: MarkerId("1"),
@@ -114,7 +114,8 @@ class _MyMapsState extends State<MyMaps> {
                 print(placemarks.first.locality);
                 print(placemarks.first.postalCode);
                 print(placemarks.first.thoroughfare);
-                address ="${placemarks.first.country}-${placemarks.first.name}-${placemarks.first.administrativeArea}";
+                address =
+                    "${placemarks.first.country}-${placemarks.first.name}-${placemarks.first.administrativeArea}";
 
                 markers.add(Marker(
                   markerId: MarkerId("1"),

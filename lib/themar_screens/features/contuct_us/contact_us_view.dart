@@ -35,7 +35,6 @@ class _ContactUsViewState extends State<ContactUsView> {
                   controller: bloc.fullNameController,
                   label: "full name",
                   hint: "enter your full name",
-                  border: const OutlineInputBorder(),
                 ),
                 const SizedBox(
                   height: 16,
@@ -44,7 +43,6 @@ class _ContactUsViewState extends State<ContactUsView> {
                   controller: bloc.phoneController,
                   label: "phone",
                   hint: "enter your phone number",
-                  border: const OutlineInputBorder(),
                 ),
                 const SizedBox(
                   height: 16,
@@ -53,7 +51,6 @@ class _ContactUsViewState extends State<ContactUsView> {
                   controller: bloc.titleController,
                   label: "title",
                   hint: "enter your title",
-                  border: const OutlineInputBorder(),
                 ),
                 const SizedBox(
                   height: 16,
@@ -61,9 +58,7 @@ class _ContactUsViewState extends State<ContactUsView> {
                 AppInput(
                   controller: bloc.contentController,
                   label: "content",
-                  maxLines: 5,
                   hint: "enter your content",
-                  border: const OutlineInputBorder(),
                 ),
                 const SizedBox(
                   height: 16,

@@ -1,6 +1,4 @@
 import 'package:api/core/designs/app_images.dart';
-import 'package:api/core/logic/helper.dart';
-import 'package:api/themar_screens/view.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,18 +9,18 @@ import '../../../core/designs/app_button.dart';
 import '../../../core/designs/app_input.dart';
 import '../../../core/logic/app_theme.dart';
 import '../../../core/logic/input_validator.dart';
+import '../../features/register/bloc.dart';
 import '../auth_components/have_acc_or_not.dart';
-import 'bloc.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  final bloc = GetIt.instance<LoginBloc>();
+class _RegisterViewState extends State<RegisterView> {
+  final bloc = GetIt.instance<RegisterBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +49,18 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  "youCanLoginNow".tr(),
+                  "youCanRegisterNow".tr(),
                   style: TextStyle(
                     fontSize: 16.sp,
                     color: AppTheme.grey,
                   ),
                 ),
                 SizedBox(height: 24.h),
+                AppInput(
+                  controller: bloc.userNameController,
+                  label: "userName".tr(),
+                  prefixIcon: "user_name.png",
+                ),
                 AppInput(
                   controller: bloc.phoneController,
                   label: "phoneNumber".tr(),
@@ -67,48 +70,42 @@ class _LoginViewState extends State<LoginView> {
                   keyboardType: TextInputType.phone,
                 ),
                 AppInput(
+                  controller: bloc.cityController,
+                  label: "city".tr(),
+                  prefixIcon: "city.png",
+                ),
+                AppInput(
                   controller: bloc.passwordController,
                   label: "password".tr(),
                   prefixIcon: "password.png",
                   validator: InputValidator.password,
                   inputType: InputType.password,
                 ),
-                Align(
-                  alignment: AlignmentDirectional.centerEnd,
-                  child: TextButton(
-                    onPressed: () {
-                      // navigateTo(const ForgetPasswordView());
-                    },
-                    child: Text("forgetPassword".tr()),
-                  ),
+                AppInput(
+                  controller: bloc.confirmPasswordController,
+                  label: "confirmPassword".tr(),
+                  prefixIcon: "password.png",
+                  validator: InputValidator.password,
+                  inputType: InputType.password,
                 ),
                 SizedBox(height: 16.h),
-                BlocConsumer(
+                BlocBuilder(
                     bloc: bloc,
-                    listener: (context, state) {
-                      if (state is LoginSuccessState) {
-                        navigateTo(Views(), keepHistory: false);
-                      }
-                    },
                     builder: (context, state) => AppButton(
-                          isLoading: state is LoginLoadingState,
+                          isLoading: state is RegisterLoadingState,
                           onPressed: () {
-                            bloc.add(LoginEvent());
+                            bloc.add(RegisterEvent());
                           },
-                          text: "login".tr(),
+                          text: "register".tr(),
                         )),
-                HaveAccountOrNot()
+                HaveAccountOrNot(
+                  fromRegister: true,
+                )
               ],
             ),
           ),
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    bloc.close();
   }
 }

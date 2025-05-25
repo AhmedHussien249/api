@@ -10,7 +10,7 @@ class _Loading extends StatelessWidget {
       highlightColor: Colors.grey.shade100,
       child: Container(
         height: 232.h,
-        margin:  EdgeInsets.symmetric(horizontal: 16.h).copyWith(top: 16.w),
+        margin: EdgeInsets.symmetric(horizontal: 16.h).copyWith(top: 16.w),
         child: Column(
           children: [
             Expanded(
@@ -22,7 +22,7 @@ class _Loading extends StatelessWidget {
                 ),
               ),
             ),
-             SizedBox(
+            SizedBox(
               height: 8.h,
             ),
             Row(
@@ -30,8 +30,10 @@ class _Loading extends StatelessWidget {
               children: List.generate(
                 5,
                 (index) => Padding(
-                  padding: EdgeInsetsDirectional.only(end: index != 4.w ? 8.w : 0),
-                  child: const CircleAvatar(radius: 6, backgroundColor: Colors.grey),
+                  padding:
+                      EdgeInsetsDirectional.only(end: index != 4.w ? 8.w : 0),
+                  child: const CircleAvatar(
+                      radius: 6, backgroundColor: Colors.grey),
                 ),
               ),
             )

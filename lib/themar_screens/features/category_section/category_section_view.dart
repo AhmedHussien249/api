@@ -49,7 +49,7 @@ class _CategorySectionState extends State<CategorySection> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.h),
                   child: Text(
                     "الاقسام",
@@ -59,14 +59,14 @@ class _CategorySectionState extends State<CategorySection> {
                         color: Colors.black),
                   ),
                 ),
-                 const SizedBox(
+                const SizedBox(
                   height: 12,
                 ),
                 Expanded(
                   child: ListView.separated(
-                    padding:  EdgeInsets.symmetric(horizontal: 16.h),
+                    padding: EdgeInsets.symmetric(horizontal: 16.h),
                     scrollDirection: Axis.horizontal,
-                    separatorBuilder: (context, index) =>  SizedBox(
+                    separatorBuilder: (context, index) => SizedBox(
                       width: 45.w,
                     ),
                     itemCount: state.list.length,
@@ -82,7 +82,7 @@ class _CategorySectionState extends State<CategorySection> {
                         ),
                         Text(
                           state.list[index].name,
-                          style:  TextStyle(
+                          style: TextStyle(
                               fontSize: 12.sp,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),

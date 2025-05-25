@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'features/category_section/category_section_view.dart';
@@ -23,7 +24,7 @@ class _ViewsState extends State<Views> {
           title: const Text("منتجات"),
           centerTitle: true,
         ),
-        body:  const SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(
             children: [
               SliderSection(),

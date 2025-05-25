@@ -6,8 +6,7 @@ class DioHelper {
   final _dio =
       Dio(BaseOptions(baseUrl: 'https://thimar.amr.aait-d.com/api/', headers: {
     'Accept': 'application/json',
-    "Authorization":
-        "Bearer ${CacheHelper.token}",
+    "Authorization": "Bearer ${CacheHelper.token}",
   }));
 
   Future<CustomResponse> getData({required String url}) async {

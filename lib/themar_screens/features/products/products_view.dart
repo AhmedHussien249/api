@@ -47,7 +47,7 @@ class _ProductsSectionState extends State<ProductsSection> {
             );
           } else if (state is ProductsSuccessState) {
             return GridView.builder(
-              padding:  EdgeInsets.all(16.h.w),
+              padding: EdgeInsets.all(16.h.w),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

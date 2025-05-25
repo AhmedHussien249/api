@@ -1,37 +1,38 @@
-class InputValidator {
-  static final phoneNumberRegEx = RegExp(r"01[0-2]\d{1,8}");
-  static final passwordRegEx = RegExp(
-      r"(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*");
+import 'package:easy_localization/easy_localization.dart';
 
-  static String? password(String? value) {
-    if (value!.trim().isEmpty) {
-      return ("password must be contain at least eight character");
-    } else if (!passwordRegEx.hasMatch(value)) {
-      return """contains at least eight characters,
-including at least one number and
-includes both lower and uppercase letters and
-include at least one special characters, #, ?, !.
-cannot be your old password""";
-    }
-    return null;
-  }
+class InputValidator {
+  static final _phoneNumberRegEx = RegExp(r"01[0-2]\d{1,8}");
+  static final _passwordRegEx =
+      RegExp(r"(?=(.*[a-zA-Z0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}");
 
   static String? phone(String? value) {
     if (value!.trim().isEmpty) {
-      return ("Phone Number must be Not Empty");
-    } else if (!phoneNumberRegEx.hasMatch(value)) {
-      return "Invalid Phone Number";
+      return "phoneMustBeNotEmpty".tr();
+    } else if (!_phoneNumberRegEx.hasMatch(value)) {
+      return "invalidPhoneNumber".tr();
     }
+
     return null;
   }
 
-  static String? normalInput(String title, String? value,
-      {required int? length}) {
+  static String? password(String? value) {
     if (value!.trim().isEmpty) {
-      return ("$title must be Not Empty");
-    } else if (value.length < length!) {
-      return ("$title Must Be at least $length character");
+      return "passwordMustBeNotEmpty".tr();
     }
+    // else if (!_passwordRegEx.hasMatch(value)) {
+    //   return "weakPassword".tr();
+    // }
+
+    return null;
+  }
+
+  static String? normalInput(String title, String? value, {int length = 3}) {
+    if (value!.trim().isEmpty) {
+      return "$title Must be Not Empty";
+    } else if (value.length < length) {
+      return "$title must be at least $length Characters";
+    }
+
     return null;
   }
 }

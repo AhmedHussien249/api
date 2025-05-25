@@ -21,7 +21,7 @@ class _ItemState extends State<_Item> {
             BoxShadow(
                 color: Colors.black.withOpacity(.25),
                 blurRadius: 4,
-                offset:  const Offset(0, 4),
+                offset: const Offset(0, 4),
                 spreadRadius: 0),
           ]),
       child: Column(
@@ -32,15 +32,15 @@ class _ItemState extends State<_Item> {
             width: double.infinity.w,
             fit: BoxFit.cover,
           ),
-           SizedBox(height: 7.h),
+          SizedBox(height: 7.h),
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 6.h),
+            padding: EdgeInsets.symmetric(horizontal: 6.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   widget.model.title,
-                  style:  TextStyle(
+                  style: TextStyle(
                       fontSize: 18.h,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
@@ -60,27 +60,27 @@ class _ItemState extends State<_Item> {
               ],
             ),
           ),
-           SizedBox(height: 5.h),
+          SizedBox(height: 5.h),
           Text(
             widget.model.description,
             maxLines: 3,
-            style:  TextStyle(fontSize: 10.sp, color: Colors.green),
+            style: TextStyle(fontSize: 10.sp, color: Colors.green),
           ),
           Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 6.h),
+            padding: EdgeInsets.symmetric(horizontal: 6.h),
             child: Row(
               children: [
                 Text(
                   "${widget.model.price}\$",
-                  style:  TextStyle(
+                  style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
                 ),
-                 SizedBox(width: 2.5.w),
+                SizedBox(width: 2.5.w),
                 Text(
                   "${widget.model.priceBeforeDiscount}\$",
-                  style:  TextStyle(
+                  style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.grey,
@@ -89,15 +89,15 @@ class _ItemState extends State<_Item> {
               ],
             ),
           ),
-           SizedBox(height: 5.h),
-           Align(
+          SizedBox(height: 5.h),
+          Align(
             alignment: AlignmentDirectional.bottomEnd,
             child: CircleAvatar(
-              radius: 16.r,
+              radius: 16,
               backgroundColor: Colors.green,
               child: Icon(
                 Icons.shopping_cart_outlined,
-                size: 16.sp,
+                size: 16,
                 color: Colors.white,
               ),
             ),
